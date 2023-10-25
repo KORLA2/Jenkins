@@ -2,7 +2,6 @@ pipeline{
 agent any 
   environment{
     NEW='1.3.0'
-    Githubcred=credentials('79a546f6-c7a0-4baa-92d1-c6faa562d72c');
   }
 stages {
 
@@ -10,7 +9,7 @@ stages {
     steps{
       
       echo "Iam build @ ${NEW}"
-      withCredentials([usernamePassword(credentials:'',usernameVariable:user,passwordVariable:pwd)]){
+      withCredentials([usernamePassword(credentials:'79a546f6-c7a0-4baa-92d1-c6faa562d72c',usernameVariable:user,passwordVariable:pwd)]){
 
         echo "${user}"
       }
@@ -19,7 +18,7 @@ stages {
   }
   stage("deploy"){
     steps{
-      echo "Iam Deploying ${Githubcred}"
+      echo "Iam Deploying "
     
     }
   }
