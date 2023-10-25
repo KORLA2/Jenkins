@@ -14,7 +14,7 @@ stages {
     steps{
       
       echo "Iam build @ ${NEW}"
-      echo "choices are ${params.Version}"
+      echo "choices are ${params.Version[1]}"
       
     }
   }
