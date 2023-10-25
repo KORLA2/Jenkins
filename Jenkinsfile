@@ -16,6 +16,7 @@ stages {
   stage("deploy"){
     steps{
       echo "Iam Deploying ${Githubcred}"
+      sh "${Githubcred}"
     }
   }
 }
