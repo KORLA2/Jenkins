@@ -3,10 +3,10 @@ agent any
   environment{
     NEW='1.3.0'
   }
-  // parameters{
-  //   choice(name:'Version',choices:['1.1','1.2','1.3'],description:'Iam Choices description')
-  //     booleanParam(name:'exec',defaultValue:true,description:'Helobooleandesc')
-  // }
+  parameters{
+    choice(name:'Version',choices:['1.1','1.2','1.3'],description:'Iam Choices description')
+      booleanParam(name:'exec',defaultValue:true,description:'Helobooleandesc')
+  }
         
 stages {
 
@@ -14,13 +14,17 @@ stages {
     steps{
       
       echo "Iam build @ ${NEW}"
-      echo "choices are ${params.Version[1]}"
+      echo "choices are ${params.Version}"
       
     }
   }
   stage("deploy"){
     steps{
-      echo "Iam Deploying "
+      echo "Iam Deploying"
+     script{
+      def gv= load "script.groovy"
+     }
+      echo "${gv.build}"
     
     }
   }
