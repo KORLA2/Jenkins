@@ -22,8 +22,8 @@ stages {
     steps{
       echo "Iam Deploying"
      script{
-      def gv= load "script.groovy"
-       echo "Iam ${gv.build}"
+      def gv= load"script.groovy"
+      gv.build()
      }
     
     
