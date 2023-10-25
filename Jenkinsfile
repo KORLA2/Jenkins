@@ -10,13 +10,17 @@ stages {
     steps{
       
       echo "Iam build @ ${NEW}"
+      withCredentials([usernamePassword(credentials:'',usernameVariable:user,passwordVariable:pwd)]){
+
+        echo "${user}"
+      }
       
     }
   }
   stage("deploy"){
     steps{
       echo "Iam Deploying ${Githubcred}"
-      sh "${Githubcred}"
+    
     }
   }
 }
