@@ -1,2 +1,2 @@
-def build="Super star Rajini"
+def build(){ echo "Super star Rajini"}
 return this
